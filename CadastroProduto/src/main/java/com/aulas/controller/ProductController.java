@@ -1,5 +1,7 @@
 package com.aulas.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,13 @@ public class ProductController {
 	public ResponseEntity<Product> findById(@PathVariable Long id){
 		Product product = service.findById(id);
 		return ResponseEntity.ok(product);
+	}
+	
+	
+	@GetMapping()
+	public ResponseEntity<List<Product>> findAll(){
+	  List<Product> lista = service.findAll();
+	  return ResponseEntity.ok().body(lista);
 	}
 
 }
