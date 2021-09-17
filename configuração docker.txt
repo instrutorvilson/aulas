@@ -1,0 +1,11 @@
+-> Criar rede no docker
+  docker network create aulasjava-net
+
+-> Baixar imagem postgres
+
+docker pull postgres:12-alpine
+
+-> iniciar container 
+docker run -p 5432:5432 --name aulasjava-pg12 --network aulasjava-net -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=aulasjava postgres:12-alpine
+
+
