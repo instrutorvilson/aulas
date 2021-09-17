@@ -2,6 +2,8 @@ package com.aulas.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<ProductRepository, Long>{
+import com.aulas.entites.Product;
+
+public interface ProductRepository extends JpaRepository<Product, Long>{
 
 }
