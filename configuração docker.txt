@@ -9,3 +9,20 @@ docker pull postgres:12-alpine
 docker run -p 5432:5432 --name aulasjava-pg12 --network aulasjava-net -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=aulasjava postgres:12-alpine
 
 
+
+->Dockerfile
+FROM openjdk:11
+VOLUME /tmp
+EXPOSE 8080
+ADD ./target/Aulas-0.0.1-SNAPSHOT.jar Aulas.jar
+ENTRYPOINT ["java","-jar","/Aulas.jar"]
+
+-> compilar projeto
+mvnw clean package -DskipTests
+
+docker build -t registration-products:v1 .
+
+docker run -p 8080 --name registration-products --network aulasjava-net registration-products:v1
+
+
+
