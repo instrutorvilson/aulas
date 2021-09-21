@@ -1,0 +1,9 @@
+Implantar o sistema no Heroku
+1-Criar app no Heroku e provisionar o banco Postgresql
+2-Pegar a string de conexão à base de dados
+3-Instanciar um servidor no seu pgAdmin com os dados de conexão
+4-Executar o script de criação da base de dados No terminal:
+
+heroku git:remote -a <nome-do-app>
+git remote -v
+git subtree push --prefix backend heroku main
