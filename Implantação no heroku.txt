@@ -2,8 +2,19 @@ Implantar o sistema no Heroku
 1-Criar app no Heroku e provisionar o banco Postgresql
 2-Pegar a string de conexão à base de dados
 3-Instanciar um servidor no seu pgAdmin com os dados de conexão
-4-Executar o script de criação da base de dados No terminal:
+4- Na pasta raiz do projeto, criar arquivo system.properties com o conteúdo: java.runtime.version=11
+5-Executar o script de criação da base de dados No terminal:
 
-heroku git:remote -a <nome-do-app>
-git remote -v
+
+//Associa aplicação ao heroku
+//heroku git:remote -a <nome-do-app>
+ heroku git:remote -a management-inventory
+ git remote -v
+
+//faz entrega continua
 git subtree push --prefix backend heroku main
+
+
+//link da aplicação no heroku
+ https://management-inventory.herokuapp.com/
+
