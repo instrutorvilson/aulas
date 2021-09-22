@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.topo {
+  width: 100%;  
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    background-color: blue;   
+}
+
+.topo div label{
+    font-size: 3rem;
+    color: white;      
+}
+
+.topo div img{
+    width: 100px;
+    height: 100px;
+    margin: 10px 10px 10px 10px;
+}
+
+.navigation{
+    height: fit-content;
+    text-align: center;
+    background-color: cornflowerblue ;   
+    padding: 10px 10px 10px 5px; 
+}
+
+ .navigation > a{
+    color: darkblue;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: silver;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+.navigation > a:hover{
+    color: silver; 
+    background-color: darkblue;
+}
+
+.content{ 
+   width: 100%;
+}
+
+.footer {
+  width: 100%;
+}
