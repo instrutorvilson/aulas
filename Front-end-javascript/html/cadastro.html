@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Management Inventory</title>
+    <title>Insert Product</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/estilos.css'>
     <script src='../javascript/main.js'></script>
@@ -23,13 +23,23 @@
         </div>
     </div>
     <div class="content">
-        <div id="msg">
-           Se seu problema é gerir o estoque de sua empresa, nos temos a solução.
-        </div>
+        <form>
+            <label>Description</label>
+            <input type="text" name="description" />
+            <label>Price</label>
+            <input type="text" name="price" />
+            <label>Inventory</label>
+            <input type="text" name="inventory" />
+            <div class="acoes">
+                <button class="salvar">Salvar</button>
+                <button class="cancelar">Cancelar</button>
+            </div>
+        </form>
     </div>
     <div class="footer">
         <label>Todos os direitos reservados</label>
     </div>
+
 </body>
 
 </html>
