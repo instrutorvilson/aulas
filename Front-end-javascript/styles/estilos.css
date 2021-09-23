@@ -76,12 +76,17 @@
 }
 
 /* classes do cadastro*/
-form{
+.cadastro{
     display: flex;
     flex-direction: column;
     border: 1px solid darkblue;
     margin: 50px 300px 100px 300px;
     padding: 20px;
+}
+
+.cadastro > ul > li{
+    color: red;
+    font-style: italic;
 }
 
 input[type=text]{

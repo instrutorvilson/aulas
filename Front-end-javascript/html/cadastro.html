@@ -12,24 +12,59 @@
 
 <body>
     <script src="../javascript/topo.js"></script>
-    <div class="content">
-        <form>
+    <div class="content">        
+        <div class="cadastro">
+            <ul id="showErros">                
+            </ul>
             <label>Description</label>
-            <input type="text" name="description" />
+            <input type="text" name="description" placeholder="Put a description" />
             <label>Price</label>
-            <input type="text" name="price" />
+            <input type="text" name="price" placeholder="Put a price" />
             <label>Inventory</label>
-            <input type="text" name="inventory" />
+            <input type="text" name="inventory"  placeholder="Put a inventory"/>
             <div class="acoes">
-                <button class="salvar" onclick="inserir()">Salvar</button>
+                <button class="salvar" onclick="enviarDadosService()">Salvar</button>
                 <button class="cancelar">Cancelar</button>
             </div>
-        </form>
+        </div>
+        
     </div>
     <div class="footer">
         <label>Todos os direitos reservados</label>
     </div>
+    <script>
+        var root = document.getElementById("showErros");
+        function enviarDadosService() {            
+            if(root.firstChild){
+                root.removeChild(root.firstChild);
+            }
 
+            var description = document.getElementsByName("description")[0];
+            if(description.value === ""){
+                addItemErro("Put a description");
+                description.focus();
+                return false;
+            }
+            var price = document.getElementsByName("price")[0];
+            if(price.value === ""){
+                addItemErro("Put a price");
+                price.focus();
+                return;
+            }
+            var inventory = document.getElementsByName("inventory")[0];
+            
+            if(inventory.value === ""){
+                addItemErro("Put a inventory");
+                inventory.focus();
+                return;
+            }
+            inserir();
+        }
+
+        function addItemErro(item){           
+           root.appendChild(document.createElement("li")).innerHTML = item;
+        }
+    </script>
 </body>
 
 </html>
