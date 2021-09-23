@@ -6,7 +6,7 @@
 }
 
 .topo {
-  display: block;  
+    display: block;
 }
 
 .header{
@@ -16,12 +16,12 @@
     background-color: blue;   
 }
 
-.topo div label{
+.topo > div > label{
     font-size: 3rem;
     color: white;      
 }
 
-.topo div img{
+.topo > div > img{
     width: 100px;
     height: 100px;
     margin: 10px 10px 10px 10px;
@@ -31,7 +31,7 @@
     height: fit-content;
     text-align: center;
     background-color: cornflowerblue ;   
-    padding: 10px 10px 10px 5px; 
+    padding: 10px 10px 10px 5px;
 }
 
  .navigation > a{

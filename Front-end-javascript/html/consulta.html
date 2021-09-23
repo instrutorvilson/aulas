@@ -10,7 +10,7 @@
     <script src='../javascript/main.js'></script>
 </head>
 
-<body>
+<body onload="getAllLocal()">
     <script src="../javascript/topo.js"></script>
     <div class="content">
         <table>
@@ -23,7 +23,7 @@
                     <th>Ações</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="root">
                 <tr>
                     <td>1</td>
                     <td>Feijão</td>
@@ -47,6 +47,7 @@
                 </tr>
             </tbody>
         </table>
+        <label id="xpto"></label>
     </div>
     <div class="footer">
         <label>Todos os direitos reservados</label>
