@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Update Product</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estilos.css'>
+    <script src='../javascript/main.js'></script>
+</head>
+
+<body>
+    <script src="../javascript/topo.js"></script>
+    <div class="content">
+        <div class="cadastro">
+            <ul id="showErros">
+            </ul>
+            <label>Id</label>
+            <input type="text" name="idproduct" readonly="true" />
+            <label>Description</label>
+            <input type="text" name="description" placeholder="Put a description" />
+            <label>Price</label>
+            <input type="text" name="price" placeholder="Put a price" />
+            <label>Inventory</label>
+            <input type="text" name="inventory" placeholder="Put a inventory" />
+            <div class="acoes">
+                <button class="salvar" onclick="enviarDadosService()">Salvar</button>
+                <button class="cancelar">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <label>Todos os direitos reservados</label>
+    </div>
+    <script>
+        var root = document.getElementById("showErros");
+        var urlParams = new URLSearchParams(window.location.search);
+        var idproduto = urlParams.get('id');
+
+        getProductById(idproduto);        
+
+        function enviarDadosService() {
+            if (root.firstChild) {
+                root.removeChild(root.firstChild);
+            }
+
+            var description = document.getElementsByName("description")[0];
+            if (description.value === "") {
+                addItemErro("Put a description");
+                description.focus();
+                return false;
+            }
+            var price = document.getElementsByName("price")[0];
+            if (price.value === "") {
+                addItemErro("Put a price");
+                price.focus();
+                return;
+            }
+            var inventory = document.getElementsByName("inventory")[0];
+
+            if (inventory.value === "") {
+                addItemErro("Put a inventory");
+                inventory.focus();
+                return;
+            }
+            if (inserir()) {
+                window.location.href = "consulta.html";
+            }
+        }
+
+        function addItemErro(item) {
+            root.appendChild(document.createElement("li")).innerHTML = item;
+        }
+    </script>
+</body>
+
+</html>

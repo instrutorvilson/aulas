@@ -45,10 +45,29 @@ function showInTable(content) {
     var root = document.getElementById("root");
     for (var product of content) {
         let linha = document.createElement("tr");
+
         linha.appendChild(document.createElement("td")).innerHTML = product.id;
         linha.appendChild(document.createElement("td")).innerHTML = product.description;
         linha.appendChild(document.createElement("td")).innerHTML = product.price;
         linha.appendChild(document.createElement("td")).innerHTML = product.inventory;
+        linha.appendChild(document.createElement("td")).innerHTML = "<a href='edita.html?id="+product.id+"'>Editar</a>";
+       
         root.appendChild(linha);
     }
 }
+
+function getProductById(id){
+    fetch(baseUrl+"/"+id)
+    .then(response => response.json())
+    .then(dados => showInForm(dados))
+    .catch((error) =>
+        console.log("Não foi possivel consultar. Erro: " + error.message)
+    ) 
+}
+
+function showInForm(content){
+    document.getElementsByName("idproduct")[0].value = content.id;
+    document.getElementsByName("description")[0].value = content.description;
+    document.getElementsByName("price")[0].value = content.price;
+    document.getElementsByName("inventory")[0].value = content.inventory;
+} 
