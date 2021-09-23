@@ -116,6 +116,13 @@ button:hover{
     border: 1px dashed red;
 }
 
+.titlePage{
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+}
+
 .salvar{
     background-color: cornflowerblue;
     color: white;
