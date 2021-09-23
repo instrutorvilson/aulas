@@ -32,6 +32,39 @@ function inserir() {
     return true;
 }
 
+function alterar() {
+    var idproduct = document.getElementsByName("idproduct")[0].value; 
+    var description = document.getElementsByName("description")[0].value;
+    var price = document.getElementsByName("price")[0].value;
+    var inventory = document.getElementsByName("inventory")[0].value;
+
+    var product = {
+        id: idproduct,
+        description: description,
+        price: price,
+        inventory: inventory
+    }
+
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(product),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    fetch(baseUrl+"/"+idproduct, options)
+        .then(response => response.text())
+        .then( data => window.location.href = "consulta.html")
+        .catch((error) => {
+            console.log("Não foi possivel consultar. Erro: " + error.message);
+            return false;
+        }
+
+        )
+    return true;
+}
+
 function getAllLocal() {
     fetch(baseUrl)
         .then(response => response.json())
