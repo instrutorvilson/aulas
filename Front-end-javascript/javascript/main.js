@@ -104,3 +104,9 @@ function showInForm(content){
     document.getElementsByName("price")[0].value = content.price;
     document.getElementsByName("inventory")[0].value = content.inventory;
 } 
+
+function limparCampos(){
+    document.getElementsByName("description")[0].value = "";
+    document.getElementsByName("price")[0].value = "";
+    document.getElementsByName("inventory")[0].value = "";
+}
