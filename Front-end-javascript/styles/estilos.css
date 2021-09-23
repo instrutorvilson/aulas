@@ -101,7 +101,7 @@ input[type=text]:focus{
     justify-content: space-between;     
 }
 
-button{
+.acoes > button{
     border-radius: 5px;
     border: 2px solid darkblue;
     width: 200px;
@@ -130,3 +130,33 @@ button:hover{
     background-color: white;
     color: indianred;
 }
+
+table,  td{
+    border: 1px solid black;
+}
+
+table{
+   margin: auto;   
+   width: 80%;
+   border-collapse: collapse;
+}
+
+tbody > tr {
+    background-color: rgb(245, 240, 240);
+}
+
+tbody > tr:nth-child(even){
+    background-color: azure
+}
+
+tbody > tr:hover{
+    background-color: burlywood;
+}
+
+thead  {
+    background-color: blue;
+    color: white;
+    font-style: italic;
+}
+
+
