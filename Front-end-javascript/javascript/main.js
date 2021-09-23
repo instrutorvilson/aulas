@@ -23,9 +23,13 @@ function inserir() {
 
     fetch(baseUrl, options)
         .then(response => response.text())
-        .catch((error) =>
-            console.log("Não foi possivel consultar. Erro: " + error.message)
+        .catch((error) => {
+            console.log("Não foi possivel consultar. Erro: " + error.message);
+            return false;
+        }
+
         )
+    return true;
 }
 
 function getAllLocal() {
@@ -48,4 +52,3 @@ function showInTable(content) {
         root.appendChild(linha);
     }
 }
- 

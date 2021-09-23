@@ -29,6 +29,30 @@
       "description": "Chá de boldo",
       "price": 1.9,
       "inventory": 2
-    }    
+    },
+    {
+      "description": "x",
+      "price": "12",
+      "inventory": "12",
+      "id": 7
+    },
+    {
+      "description": "Carne de feijão",
+      "price": "1800",
+      "inventory": "2",
+      "id": 8
+    },
+    {
+      "description": "gihgg",
+      "price": "100",
+      "inventory": "2",
+      "id": 9
+    },
+    {
+      "description": "Chumbinho calibre 5.5",
+      "price": "100",
+      "inventory": "2",
+      "id": 10
+    }
   ]
 }
