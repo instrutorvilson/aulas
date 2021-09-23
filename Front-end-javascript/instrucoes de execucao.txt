@@ -1,0 +1,10 @@
+Para executar o cadastro na maquina local precisa:
+1- Instalar o json server
+ // npm install -g json-server
+
+2-Iniciar o servidor
+ // json-server --watch products.db
+
+-------------------------
+https://www.npmjs.com/package/json-server
+
