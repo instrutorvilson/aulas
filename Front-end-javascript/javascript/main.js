@@ -111,8 +111,8 @@ function showInTable(content) {
 
         linha.appendChild(document.createElement("td")).innerHTML = product.id;
         linha.appendChild(document.createElement("td")).innerHTML = product.description;
-        linha.appendChild(document.createElement("td")).innerHTML = product.price;
-        linha.appendChild(document.createElement("td")).innerHTML = product.inventory;
+        linha.appendChild(document.createElement("td")).innerHTML = formatMoney(product.price);
+        linha.appendChild(document.createElement("td")).innerHTML = formatInventory(product.inventory);
        
         colunaAcoes = document.createElement("td");
         acaoEdita = document.createElement("a");
@@ -126,14 +126,11 @@ function showInTable(content) {
    
         colunaAcoes.appendChild(acaoEdita);
         colunaAcoes.appendChild(acaoExcluir);
-        linha.appendChild(colunaAcoes); 
-        
+        linha.appendChild(colunaAcoes);         
 
         root.appendChild(linha);
     }
 }
-
-
 
 function showInForm(content) {
     document.getElementsByName("idproduct")[0].value = content.id;
@@ -146,4 +143,13 @@ function limparCampos() {
     document.getElementsByName("description")[0].value = "";
     document.getElementsByName("price")[0].value = "";
     document.getElementsByName("inventory")[0].value = "";
+}
+
+function formatMoney(valor){
+    var valorFormatado = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return valorFormatado;
+}
+
+function formatInventory(valor){
+    return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2});
 }
