@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Contato implements Serializable {
+@Table(name = "tb_contacts")
+public class Contact implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +20,11 @@ public class Contato implements Serializable {
     private String email;
     
     
-	public Contato() {
+	public Contact() {
 		
 	}
 	
-	public Contato(Long id, String nome, String fone, String email) {
+	public Contact(Long id, String nome, String fone, String email) {
 		this.id = id;
 		this.nome = nome;
 		this.fone = fone;
