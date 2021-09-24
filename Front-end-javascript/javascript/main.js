@@ -34,7 +34,6 @@ function inserir() {
 }
 
 function alterar() {
-    debugger;
     var idproduct = document.getElementsByName("idproduct")[0].value;
     var description = document.getElementsByName("description")[0].value;
     var price = document.getElementsByName("price")[0].value;
@@ -46,7 +45,6 @@ function alterar() {
         price: price,
         inventory: inventory
     }
-
     const options = {
         method: 'PUT',
         mode: 'cors',
@@ -61,16 +59,46 @@ function alterar() {
         .then(response => response.text())
         .then(data => window.location.href = "consulta.html")
         .catch((error) => {
-            console.log("Não foi possivel consultar. Erro: " + error.message);           
+            console.log("Não foi possivel alterar. Erro: " + error.message);           
         }
 
     )
+}
+
+function excluir(id){
+    const options = {
+        method: 'DELETE',
+        mode: 'cors',
+        body: null,
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }
+    
+    fetch(baseUrl+"/"+id, options)
+        .then(response => response.text())
+        .then(data => window.location.href = "consulta.html")
+        .catch((error) => {
+            console.log("Não foi possivel excluir. Erro: " + error.message);           
+        }
+    )
+
 }
 
 function getAll() {
     fetch(baseUrl)
         .then(response => response.json())
         .then(dados => showInTable(dados))
+        .catch((error) =>
+            console.log("Não foi possivel consultar. Erro: " + error.message)
+        )
+}
+
+function getProductById(id) {
+    fetch(baseUrl + "/" + id)
+        .then(response => response.json())
+        .then(dados => showInForm(dados))
         .catch((error) =>
             console.log("Não foi possivel consultar. Erro: " + error.message)
         )
@@ -85,20 +113,27 @@ function showInTable(content) {
         linha.appendChild(document.createElement("td")).innerHTML = product.description;
         linha.appendChild(document.createElement("td")).innerHTML = product.price;
         linha.appendChild(document.createElement("td")).innerHTML = product.inventory;
-        linha.appendChild(document.createElement("td")).innerHTML = "<a href='edita.html?id=" + product.id + "'>Editar</a>";
+       
+        colunaAcoes = document.createElement("td");
+        acaoEdita = document.createElement("a");
+        acaoEdita.setAttribute("href",'edita.html?id=' + product.id);
+        acaoEdita.innerHTML = "Editar";
+        
+        acaoExcluir = document.createElement("a");
+        acaoEdita.setAttribute("href","#");
+        acaoExcluir.setAttribute("onclick", "excluir("+product.id+")");
+        acaoExcluir.innerHTML = "Excluir";
+
+        colunaAcoes.appendChild(acaoEdita);
+        colunaAcoes.appendChild(acaoExcluir);
+        linha.appendChild(colunaAcoes); 
+        
 
         root.appendChild(linha);
     }
 }
 
-function getProductById(id) {
-    fetch(baseUrl + "/" + id)
-        .then(response => response.json())
-        .then(dados => showInForm(dados))
-        .catch((error) =>
-            console.log("Não foi possivel consultar. Erro: " + error.message)
-        )
-}
+
 
 function showInForm(content) {
     document.getElementsByName("idproduct")[0].value = content.id;
