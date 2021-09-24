@@ -117,13 +117,13 @@ function showInTable(content) {
         colunaAcoes = document.createElement("td");
         acaoEdita = document.createElement("a");
         acaoEdita.setAttribute("href",'edita.html?id=' + product.id);
-        acaoEdita.innerHTML = "Editar";
+        acaoEdita.innerHTML = "<i class='material-icons'>report</i>";
         
-        acaoExcluir = document.createElement("a");
-        acaoEdita.setAttribute("href","#");
+        acaoExcluir = document.createElement("i");
         acaoExcluir.setAttribute("onclick", "excluir("+product.id+")");
-        acaoExcluir.innerHTML = "Excluir";
-
+        acaoExcluir.setAttribute("class", 'material-icons');
+        acaoExcluir.innerHTML = "clear";
+   
         colunaAcoes.appendChild(acaoEdita);
         colunaAcoes.appendChild(acaoExcluir);
         linha.appendChild(colunaAcoes); 
