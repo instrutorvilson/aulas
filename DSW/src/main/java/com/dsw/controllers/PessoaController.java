@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dsw.Pessoa;
+
 @RestController
 @RequestMapping("/persons")
 public class PessoaController {
@@ -22,5 +24,8 @@ public class PessoaController {
 		return "Olá " + name ;
 	}
 	
-	
+	@GetMapping("/objeto")
+	public Pessoa getPessoa() {
+		return new Pessoa("José da Silva",50,"josé@gmail.com");
+	}
 }
