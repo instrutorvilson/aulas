@@ -1,5 +1,7 @@
 package com.cadastro.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.cadastro.enumerates.Medidas;
+
 @Entity
 @Table(name = "tb_produts")
-public class Product {
+public class Product implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -23,13 +30,13 @@ public class Product {
 	@Column(nullable = false)
 	private float estoque;
 	
-	private char unidadeMedida;
+	private Medidas unidadeMedida;
 
 	public Product() {
 		super();
 	}
 
-	public Product(Long id, String descricao, float preco, float estoque, char unidadeMedida) {
+	public Product(Long id, String descricao, float preco, float estoque, Medidas unidadeMedida) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -70,11 +77,11 @@ public class Product {
 		this.estoque = estoque;
 	}
 
-	public char getUnidadeMedida() {
+	public Medidas getUnidadeMedida() {
 		return unidadeMedida;
 	}
 
-	public void setUnidadeMedida(char unidadeMedida) {
+	public void setUnidadeMedida(Medidas unidadeMedida) {
 		this.unidadeMedida = unidadeMedida;
 	}
 	
