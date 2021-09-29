@@ -33,11 +33,10 @@ public class Product implements Serializable{
 	private Medidas unidadeMedida;
 
 	public Product() {
-		super();
+		
 	}
 
 	public Product(Long id, String descricao, float preco, float estoque, Medidas unidadeMedida) {
-		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.preco = preco;
