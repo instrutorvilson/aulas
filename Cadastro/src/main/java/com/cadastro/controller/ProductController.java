@@ -20,4 +20,10 @@ public class ProductController {
 	}
 	
 	
+	@GetMapping("/products/novo")
+	public String newProduto() {
+		return "novo"; 
+	}
+	
+	
 }
