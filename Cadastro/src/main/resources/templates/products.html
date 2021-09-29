@@ -23,6 +23,7 @@
 		        <th>Valor Unitário RS</th>
 		        <th>Estoque</th>
 		        <th>Unidade</th>
+		        <th>Ações</th>
 		     </tr>
 		   </thead>
 		   <tbody>
@@ -31,7 +32,11 @@
 		          <td th:text="${product.getDescricao()}"> </td>
 		          <td th:text="${product.getPreco()}"> </td>
 		          <td th:text="${product.getEstoque()}"> </td>
-		          <td th:text="${product.getUnidadeMedida()}"> </td>
+		          <td th:text="${product.getUnidadeMedida()}"></td>
+		          <td>
+		             <a th:href="@{/products/{id}(id=${product.getId()})}" class="btn btn-outline-primary">Alterar</a>
+		             <a th:href="@{/products/excluir/{id}(id=${product.getId()})}" class="btn btn-outline-danger">Excluir</a>
+		           </td>
 		       </tr>
 		   </tbody>
 		</table>

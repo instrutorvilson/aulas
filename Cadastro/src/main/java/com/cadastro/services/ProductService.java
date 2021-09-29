@@ -1,6 +1,7 @@
 package com.cadastro.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -22,5 +23,13 @@ public class ProductService {
   
   public void save(Product product) {
 	  repository.save(product);
+  }
+  
+  public Product getById(Long id) {
+	  Optional<Product> product = repository.findById(id);
+      if(product.isEmpty()) {
+    	  throw new IllegalArgumentException("Produto não existe.");
+      }
+	  return product.get();		  
   }
 }
