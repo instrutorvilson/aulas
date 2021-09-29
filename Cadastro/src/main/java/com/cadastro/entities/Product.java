@@ -32,6 +32,7 @@ public class Product implements Serializable{
 	
 	private Medidas unidadeMedida;
 
+	@Deprecated
 	public Product() {
 		
 	}

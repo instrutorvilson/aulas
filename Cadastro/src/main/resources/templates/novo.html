@@ -12,7 +12,16 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Listing of products</h2>
+		<h2>Inserting new product</h2>
+		<form action="#" th:action="@{/products/novo/salvar}" th:object="${product}" method="POST">
+		    <input type=text placeholder="Put a description" class="form-control mb-4 col-4" th:field="*{descricao}"/>
+		    <input type=text placeholder="Put a price" class="form-control mb-4 col-4" th:field="*{preco}"/>
+		    <input type=text placeholder="Put a inventory" class="form-control mb-4 col-4" th:field="*{estoque}"/>
+		   
+		    
+		    <button type=submit class="btn btn-info col-2">Salvar</button>
+		    
+		</form>
 
 	</div>
 </body>
