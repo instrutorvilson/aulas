@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Lista de produtos</title>
+<meta charset="UTF-8">
+<title>Management Products</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+	crossorigin="anonymous">
+
 </head>
 <body>
-   <h2> Listing of products</h2>
+	<div class="container">
+		<h2>Listing of products</h2>
+		<table class="table table-striped"> 
+		   <thead>
+		     <tr>
+		        <th>Id</th>
+		        <th>Descrição</th>
+		        <th>Valor Unitário RS</th>
+		        <th>Estoque</th>
+		        <th>Unidade</th>
+		     </tr>
+		   </thead>
+		   <tbody>
+		       <tr th:each="product : ${ListProducts}">
+		          <td th:text="${product.getId()}"> </td>
+		          <td th:text="${product.getDescricao()}"> </td>
+		          <td th:text="${product.getPreco()}"> </td>
+		          <td th:text="${product.getEstoque()}"> </td>
+		          <td th:text="${product.getUnidadeMedida()}"> </td>
+		       </tr>
+		   </tbody>
+		</table>
+	</div>
+
+
 </body>
 </html>
