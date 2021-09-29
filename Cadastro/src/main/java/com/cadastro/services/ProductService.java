@@ -32,4 +32,12 @@ public class ProductService {
       }
 	  return product.get();		  
   }
+  
+  public void delete(Long id) {
+	  Optional<Product> product = repository.findById(id);
+      if(product.isEmpty()) {
+    	  throw new IllegalArgumentException("Produto não existe.");
+      }
+	  repository.deleteById(id);	  
+  }
 }

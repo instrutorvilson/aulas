@@ -25,8 +25,7 @@ public class ProductController {
 		model.addAttribute("ListProducts", service.getAll());
 		return "products"; 
 	}
-	
-	
+		
 	@GetMapping("/products/novo")
 	public String newProduto(@ModelAttribute("product") Product product) {
 		return "novo"; 
@@ -44,12 +43,11 @@ public class ProductController {
 		model.addAttribute("product", service.getById(id));
 		return "novo"; 
 	}
-	
-	
-	@DeleteMapping("/products/excluir/{id}")
-	public String deleteProduct(@ModelAttribute("product") Product product) {
-		product.setUnidadeMedida(Medidas.UNIDADE);
-		service.save(product);
+		
+	/*thymeleaf não suporta PutMaping and delete Mapping*/
+	@GetMapping("/products/excluir/{id}")
+	public String deleteProduct(@PathVariable("id") long id) {
+		service.delete(id);
 		return "redirect:/products"; 
 	}
 	
