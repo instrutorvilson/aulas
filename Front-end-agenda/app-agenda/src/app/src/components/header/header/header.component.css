@@ -1,0 +1,11 @@
+.nav{
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  padding: 5px;
+}
+
+.nav > label{
+    color: white;
+    margin-left: 15px;
+}
