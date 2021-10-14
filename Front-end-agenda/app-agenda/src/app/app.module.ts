@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './src/components/header/header/header.component';
 import { SideBarComponent } from './src/components/side-bar/side-bar.component';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+
 import { HomeComponent } from './src/components/home/home.component';
 import { ContatoCrudComponent } from './src/components/contato-crud/contato-crud.component';
+import { ContactsCreateComponent } from './src/components/contacts-create/contacts-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { ContatoCrudComponent } from './src/components/contato-crud/contato-crud
     HeaderComponent,
     SideBarComponent,
     HomeComponent,
-    ContatoCrudComponent
+    ContatoCrudComponent,
+    ContactsCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { ContatoCrudComponent } from './src/components/contato-crud/contato-crud
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
