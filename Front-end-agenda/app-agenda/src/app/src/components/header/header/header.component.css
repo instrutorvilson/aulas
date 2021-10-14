@@ -1,11 +1,23 @@
-.nav{
+.header{
   display: flex;
-  flex-direction: row;
-  background-color: blue;
-  padding: 5px;
+  align-items: center;
 }
 
-.nav > label{
-    color: white;
-    margin-left: 15px;
+.header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;  
+}
+
+.header .logo{
+  max-height: 32px;
+}
+
+.title-group{
+  padding-left: 150px; 
+  display: flex;
+} 
+
+.title-group a i {
+  padding-right: 10px;
 }
