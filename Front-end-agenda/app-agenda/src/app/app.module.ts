@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { HomeComponent } from './src/components/home/home.component';
 import { ContatoCrudComponent } from './src/components/contato-crud/contato-crud.component';
@@ -32,7 +33,8 @@ import { ContactsCreateComponent } from './src/components/contacts-create/contac
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
