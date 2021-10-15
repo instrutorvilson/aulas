@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactService } from '../../service/contact.service';
+import { Contact } from '../Contact_model';
 
 @Component({
   selector: 'app-contacts-create',
@@ -8,6 +9,12 @@ import { ContactService } from '../../service/contact.service';
   styleUrls: ['./contacts-create.component.css']
 })
 export class ContactsCreateComponent implements OnInit {
+   
+  contact: Contact = {
+      nome: '',
+      fone: '',
+      email: ''
+   }
 
   constructor(private contactService: ContactService, private router: Router) { }
 
@@ -15,10 +22,14 @@ export class ContactsCreateComponent implements OnInit {
   }
   
   createContact(): void{
-    this.contactService.showMessage("Contact salvo com sucesso");
+    this.contactService.create(this.contact).subscribe( () => {
+      this.contactService.showMessage("Contact salvo com sucesso");
+      this.router.navigate(['contacts']);
+    });
+      
   }
 
   cancel(): void{
-    this.router.navigate(['contacts'])
+    this.router.navigate(['contacts']);
   }
 }

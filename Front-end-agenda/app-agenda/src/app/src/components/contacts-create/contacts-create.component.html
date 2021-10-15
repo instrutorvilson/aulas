@@ -1,7 +1,21 @@
-<button mat-raised-button (click)="createContact()" color="primary">
-    Save
-</button>
+<mat-card>
+    <mat-card-title>New Contact</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="contact.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Fone" [(ngModel)]="contact.fone" name="fone">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="contact.email" name="email">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="createContact()" color="primary">
+        Save
+    </button>
 
-<button mat-raised-button  (click)="cancel()">
-   Cancel
-</button>
+    <button mat-raised-button (click)="cancel()">
+        Cancel
+    </button>
+</mat-card>
